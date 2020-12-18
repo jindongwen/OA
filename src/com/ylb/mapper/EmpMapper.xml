@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ylb.mapper.EmpMapper">
+    <insert id="empInsert">
+        insert into employee values (#{empId},#{password},#{deptno},#{posid},#{mgrid},#{realName},#{sex},
+                                    #{birthDate},#{hireDate},#{leaveDate},#{onDuty},#{empType},#{phone},
+                                    #{qq},#{emerContactPerson},#{idCard})
+    </insert>
+
+    <select id="empFindAll" resultType="Employee">
+        SELECT * FROM employee e
+        JOIN dept d
+        on d.deptno=e.deptno
+        JOIN position p
+        on e.posid=p.posid
+        <where>
+            <if test="param1!=null and param1!=''">
+                e.empid = #{param1}
+            </if>
+            <if test="param2!=null and param2!=''">
+                and e.deptno=#{param2}
+            </if>
+            <if test="param3!=null and param3!=''">
+                and e.onduty=#{param3}
+            </if>
+            <if test="param4!=null and param4!=''">
+                and e.hiredate=#{param4}
+            </if>
+        </where>
+    </select>
+
+    <delete id="empDelete">
+        delete from employee where empid =#{param1}
+    </delete>
+
+    <update id="empUpdate">
+        update employee set password=#{password},deptno=#{deptno},posid=#{posid},mgrid=#{mgrid},realname=#{realName},sex=#{sex},
+                                    birthdate=#{birthDate},hiredate=#{hireDate},leavedate=#{leaveDate},onduty=#{onDuty},emptype=#{empType},phone=#{phone},
+                                    qq=#{qq},emercontactperson=#{emerContactPerson},idcard=#{idCard} where empid=#{empId}
+    </update>
+</mapper>

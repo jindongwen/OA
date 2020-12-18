@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ylb.mapper.DeptMapper">
+    <select id="select" resultType="Dept">
+        select * from dept
+    </select>
+
+    <select id="selectOne" resultType="Dept">
+        select * from dept where deptno=#{param1}
+    </select>
+
+    <insert id="insert">
+        insert into dept values(#{deptno},#{deptname},#{location})
+    </insert>
+
+    <update id="update">
+        update  dept set deptname=#{deptname},location=#{location} where deptno=#{deptno}
+    </update>
+
+    <delete id="delete">
+        delete from dept  where deptno=#{param1}
+    </delete>
+</mapper>
