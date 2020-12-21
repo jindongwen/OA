@@ -40,4 +40,11 @@
                                     birthdate=#{birthDate},hiredate=#{hireDate},leavedate=#{leaveDate},onduty=#{onDuty},emptype=#{empType},phone=#{phone},
                                     qq=#{qq},emercontactperson=#{emerContactPerson},idcard=#{idCard} where empid=#{empId}
     </update>
+    <select id="selectMgr" resultType="Employee">
+        select * from  employee where emptype=2
+    </select>
+
+    <select id="empSelectOne" resultType="Employee">
+        select * from employee where empid=#{param1} and password=#{param2}
+    </select>
 </mapper>

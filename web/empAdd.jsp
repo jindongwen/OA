@@ -1,8 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
 <head>
+    <title>$Title$</title>
+    <base href="<%=request.getContextPath()+"/"%>">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>无标题文档</title>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
@@ -81,7 +82,9 @@
                 <label>所属部门<b>*</b></label>
                 <div class="vocation">
                     <select class="select1" name="deptno">
-                        <option value="1">总裁部</option>
+                      <c:forEach items="${requestScope.deptList}" var="dept">
+                          <option value="${dept.deptno}">${dept.deptname}</option>
+                      </c:forEach>
                     </select>
                 </div>
 
@@ -90,7 +93,9 @@
                 <label>从事岗位<b>*</b></label>
                 <div class="vocation">
                     <select class="select1" name="posid">
-                        <option value="2">程序员</option>
+                        <c:forEach items="${requestScope.posList}" var="pos">
+                            <option value="${pos.posid}">${pos.pname}</option>
+                        </c:forEach>
                     </select>
                 </div>
 
@@ -99,7 +104,9 @@
                 <label>直接上级<b>*</b></label>
                 <div class="vocation">
                     <select class="select1" name="mgrid">
-                        <option value="1">test</option>
+                        <c:forEach items="${requestScope.mgrList}" var="mgr">
+                            <option value="${mgr.empId}">${mgr.realName}</option>
+                        </c:forEach>
                     </select>
                 </div>
                 &nbsp;&nbsp;<input name="" type="text" class="dfinput" placeholder="也可以在此输入首字母帮助显示"/></li>

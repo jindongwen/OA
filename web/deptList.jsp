@@ -68,7 +68,7 @@ $(document).ready(function(){
             <td>${dept.deptno}</td>
             <td>${dept.deptname}</td>
             <td>${dept.location}</td>
-            <td><a href="sxt/AddDeptnoServlet?method=deptFindOne&deptno=${dept.deptno}" class="tablelink">修改</a> &nbsp;&nbsp;&nbsp;&nbsp;  <a href="javascript:void(0)" class="tablelink click" onclick="remove1(${dept.deptno})"> 删除</a></td>
+            <td><a href="sxt/AddDeptnoServlet?method=deptFindOne&deptno=${dept.deptno}"   class="tablelink">修改</a> &nbsp;&nbsp;&nbsp;&nbsp;  <a href="javascript:void(0)" class="tablelink click" onclick="remove1(${dept.deptno})"> 删除</a></td>
             </tr>
         </c:forEach>
 

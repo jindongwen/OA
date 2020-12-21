@@ -50,4 +50,20 @@ public class EmployeeServiceImp implements EmployeeService {
         DBUtil.closeSqlSession();
         return i;
     }
+
+    @Override
+    public List<Employee> findMgr() {
+        EmpMapper mapper = DBUtil.getSqlSession().getMapper(EmpMapper.class);
+        List<Employee> employees = mapper.selectMgr();
+        DBUtil.closeSqlSession();
+        return employees;
+    }
+
+    @Override
+    public Employee login(String name, String pwd) {
+        EmpMapper mapper = DBUtil.getSqlSession().getMapper(EmpMapper.class);
+        Employee employee = mapper.empSelectOne(name, pwd);
+        DBUtil.closeSqlSession();
+        return employee;
+    }
 }

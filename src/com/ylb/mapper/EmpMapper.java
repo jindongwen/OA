@@ -12,4 +12,9 @@ public interface EmpMapper {
     int empDelete(String empid);
 
     int empUpdate(Employee emp);
+
+    List<Employee> selectMgr();
+
+//    查询用户 登陆
+    Employee empSelectOne(String name,String pwd);
 }

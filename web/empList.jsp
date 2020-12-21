@@ -67,7 +67,9 @@
                 <a>
                     <select class="select1" name="deptno">
                         <option value="">请选择</option>
-                        <option value="1">总裁办</option>
+                        <c:forEach items="${requestScope.deptList}" var="dept">
+                            <option value="${dept.deptno}"  <c:if test="${dept.deptno==requestScope.deptno}"> selected </c:if> >   ${dept.deptname}</option>
+                        </c:forEach>
                     </select>
                 </a>
             </li>

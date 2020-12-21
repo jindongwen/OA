@@ -15,4 +15,8 @@ public interface EmployeeService {
     Employee findOne(String empId);
 
     int Update(Employee emp);
+
+    List<Employee> findMgr();
+
+    Employee login(String name,String pwd);
 }
