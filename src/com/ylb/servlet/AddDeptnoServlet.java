@@ -1,5 +1,6 @@
 package com.ylb.servlet;
 
+import com.google.gson.Gson;
 import com.ylb.entity.Dept;
 import com.ylb.service.Imp.DeptnoServletImp;
 
@@ -16,7 +17,13 @@ import java.util.List;
 @WebServlet("/sxt/AddDeptnoServlet")
 public class AddDeptnoServlet extends BaseServlet {
 
+    private void findAll(HttpServletRequest req,HttpServletResponse resp) throws IOException {
+        DeptnoServletImp dep = new DeptnoServletImp();
+        List<Dept> search = dep.search();
 
+        String s = new Gson().toJson(search);
+        resp.getWriter().print(s);
+    }
     private void deptSave(HttpServletRequest req,HttpServletResponse resp) throws IOException {
         DeptnoServletImp dep = new DeptnoServletImp();
         int deptno = Integer.parseInt(req.getParameter("deptno"));

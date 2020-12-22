@@ -10,6 +10,8 @@ import java.time.LocalDate;
  */
 public class Duty {
 
+
+
 	private int dtID;
 	private LocalDate dtDate;
 	private String signinTime;

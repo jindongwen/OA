@@ -48,8 +48,8 @@
 </head>
 
 <body style="background:#f0f9fd;">
-<div class="lefttop"><span></span>导航菜单</div>
 
+<div class="lefttop"><span></span>导航菜单</div>
 <%--管理人员--%>
 <c:if test="${sessionScope.emp.empType==2}">
     <dl class="leftmenu">

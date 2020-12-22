@@ -13,12 +13,22 @@
                     if (res > 0) {
                         alert("签到成功");
                     } else if (-1 == res) {
-                        alert("一斤签到");
+                        alert("已经签到");
                     }
                     else{
                         alert("签到失败");
                     }
                 }, "json")
+            })
+
+            $("#signOut").click(function (){
+                $.post("sxt/DutyServlet","method=signOut",function (res){
+                    if(res > 0){
+                        alert("签退成功");
+                    }else {
+                        alert("签退失败");
+                    }
+                },"json")
             })
         })
     </script>
@@ -42,7 +52,7 @@
         <li><label>&nbsp;</label><input name="" type="button" id="signIn" class="btn" value="签到"/> 每天签到一次，不可重复签到</li>
         <li><label>&nbsp;</label></li>
         <li><label>&nbsp;</label></li>
-        <li><label>&nbsp;</label><input name="" type="button" class="btn" value="签退"/>可重复签退，以最后一次签退为准</li>
+        <li><label>&nbsp;</label><input name="" type="button" id="signOut" class="btn" value="签退"/>可重复签退，以最后一次签退为准</li>
     </ul>
 
 

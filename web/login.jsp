@@ -45,8 +45,8 @@
     <div class="loginbox loginbox2">
     <form action="sxt/EmployeeServlet?method=empLogin" method="post">
         <ul>
-            <li><input name="name" type="text" class="loginuser" value="admin" onclick="JavaScript:this.value=''"/></li>
-            <li><input name="pwd" type="text" class="loginpwd" value="密码" onclick="JavaScript:this.value=''"/></li>
+            <li><input name="name" type="text" class="loginuser" value="4321" onclick="JavaScript:this.value=''"/></li>
+            <li><input name="pwd" type="text" class="loginpwd" value="123" onclick="JavaScript:this.value=''"/></li>
             <li class="yzm">
                 <span><input name="" type="text" value="验证码" onclick="JavaScript:this.value=''"/></span><cite><img id = "img1" src="rand.jpg" width="120px" height="46px" onclick="change()"></cite>
             </li>
