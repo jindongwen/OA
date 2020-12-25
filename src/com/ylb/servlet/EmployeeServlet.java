@@ -1,5 +1,6 @@
 package com.ylb.servlet;
 
+import com.google.gson.Gson;
 import com.ylb.entity.Dept;
 import com.ylb.entity.Employee;
 import com.ylb.entity.Position;
@@ -27,6 +28,18 @@ public class EmployeeServlet  extends BaseServlet {
     private EmployeeService emps = new EmployeeServiceImp();
     private Employee emp=null;
 
+    //查询上级领导
+    protected void empAllMgr(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        List<Employee> mgr = emps.findMgr();
+        String s = new Gson().toJson(mgr);
+        resp.getWriter().print(s);
+    }
+
+    protected void empFindMgr(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        List<Employee> mgr = emps.findMgr();
+        String s = new Gson().toJson(mgr);
+        resp.getWriter().print(s);
+    }
 
     protected void empLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
